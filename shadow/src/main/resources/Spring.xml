@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans.xsd"
+		default-autowire="byType">
+
+	<!--对象service1，里面有三个参数，在这里直接给赋值了。相应的类里面提供get，set方法-->
+	<bean name="service1" class="com.shadow.TestService">
+		<property name="fruit" value="橙子"/>
+		<property name="sugar" value="多糖"/>
+		<property name="size" value="超大杯"/>
+	</bean>
+
+	<!--对象appconfig，里面有一个实例化对象service1,注入依赖-->
+	<bean name="appconfig" class="com.shadow.Appconfig">
+<!--		<property name="source">-->
+<!--			<ref bean="service1"></ref>-->
+<!--		</property>-->
+	</bean>
+</beans>
