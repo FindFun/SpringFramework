@@ -13,5 +13,6 @@ public class Test {
 		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(Appconfig.class);
 		ac.getBean(lubanService.class).xx();
 		System.out.println("adf");
+		System.out.println("222");
 	}
 }
