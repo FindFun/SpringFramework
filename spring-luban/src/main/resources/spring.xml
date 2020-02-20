@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+	  >
+
+		<bean init-method="" id="a" class="com.luban.app.A">
+		</bean>
+
+<!--		<bean id="i1" class="com.luban.services.I1">-->
+<!--		</bean>-->
+<!--		<bean id="i2" class="com.luban.services.I2">-->
+<!--		</bean>-->
+<!--		<bean id="b"  class="com.luban.app.B">-->
+<!--		</bean>-->
+
+
+
+</beans>

@@ -2,12 +2,13 @@ package com.shadow;
 
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @auther Jack
  * @create 2020-02-14-3:15
  */
-@Configurable
+@Configuration //加完之后变成一个代理类Appconfig,保证bean实例化为单例
 @ComponentScan("com.shadow")
 public class Appconfig {
 

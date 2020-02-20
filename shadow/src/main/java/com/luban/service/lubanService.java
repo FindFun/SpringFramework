@@ -14,7 +14,7 @@ public class lubanService {
 	@Autowired
 	ziluService zl;
 
-	public void xx(){
+	public void xx() {
 
 		System.out.println(zl);
 	}
