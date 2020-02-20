@@ -305,6 +305,7 @@ configure(rootProject) {
 
 dependencies {
     implementation 'org.testng:testng:6.9.6'
+    implementation 'org.testng:testng:6.9.6'
 }
 
 /*

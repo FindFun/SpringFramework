@@ -153,6 +153,9 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
 	/**
 	 * Return the bean names that this bean depends on.
+	 * 返回此bean所依赖的bean名称。
+	 * 当创建一个bean的时候，如果加了DependsOn("xxx")
+	 * 则接下来实例下面的类的时候，需要先创建xxx
 	 */
 	@Nullable
 	String[] getDependsOn();
@@ -163,10 +166,19 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	 * It does not affect explicit references by name, which will get resolved even
 	 * if the specified bean is not marked as an autowire candidate. As a consequence,
 	 * autowiring by name will nevertheless inject a bean if the name matches.
+	 * * 设置这个bean是否可以被其他bean自动捕获。
+	 * 注意这个标志被设计成只影响基于类型的自动装配。
+	 * *它不影响显式引用的名称，这将得到解决
+	 * *如果指定的bean没有被标记为autowire候选。因此,
+	 * *如果名字匹配，自动装配仍然会注入一个bean。
+	 *
+	 *
+	 * 设置是否作为自动装配的候选对象，如果有一个类，不想让他自动装配，那么在这里设置为false
 	 */
 	void setAutowireCandidate(boolean autowireCandidate);
 
 	/**
+	 * 是否是自动装配选项
 	 * Return whether this bean is a candidate for getting autowired into some other bean.
 	 */
 	boolean isAutowireCandidate();
@@ -175,6 +187,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	 * Set whether this bean is a primary autowire candidate.
 	 * <p>If this value is {@code true} for exactly one bean among multiple
 	 * matching candidates, it will serve as a tie-breaker.
+	 * 是否是主要的自动装配对象
 	 */
 	void setPrimary(boolean primary);
 
@@ -183,26 +196,32 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	 */
 	boolean isPrimary();
 
-	/**
+	/**指定要使用的工厂bean(如果有的话)。
+	 *这是调用指定工厂方法的bean的名称。
 	 * Specify the factory bean to use, if any.
 	 * This the name of the bean to call the specified factory method on.
 	 * @see #setFactoryMethodName
 	 */
 	void setFactoryBeanName(@Nullable String factoryBeanName);
 
-	/**
+	/**返回工厂bean名(如果有的话)。
 	 * Return the factory bean name, if any.
 	 */
 	@Nullable
 	String getFactoryBeanName();
 
-	/**
+	/**指定工厂方法(如果有的话)。这个方法将被调用
+	 *构造函数参数，如果没有指定参数，则使用无参数。
+	 *该方法将在指定的工厂bean上调用，如果有的话，
+	 或者作为本地bean类的静态方法。
 	 * Specify a factory method, if any. This method will be invoked with
 	 * constructor arguments, or with no arguments if none are specified.
 	 * The method will be invoked on the specified factory bean, if any,
 	 * or otherwise as a static method on the local bean class.
 	 * @see #setFactoryBeanName
 	 * @see #setBeanClassName
+	 *
+	 *
 	 */
 	void setFactoryMethodName(@Nullable String factoryMethodName);
 

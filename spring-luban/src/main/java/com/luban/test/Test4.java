@@ -2,14 +2,13 @@ package com.luban.test;
 
 import com.luban.app.Appconfig;
 import com.luban.app.Entitlement;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * @auther Jack
  * @create 2020-02-20-19:36
  */
-public class Test_beanDefinition {
+public class Test4 {
 
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();

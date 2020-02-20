@@ -3,10 +3,19 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd"
-	  >
+	  default-autowire="byType">
 
-		<bean init-method="" id="a" class="com.luban.app.A">
-		</bean>
+	<bean name="beanService" class="com.luban.services.s1">
+		<!--若此时这里需要装配一个s21，根据default-autowire的byType，会找到两个，但是不会报错-->
+	</bean>
+
+	<bean name="beanService" class="com.luban.services.s21"></bean>
+
+	<!--此时给s22设置autowire-candidate="false"，则此时，s1的bean可以装配成功-->
+	<!--primary="",若设置这个属性，则作为主要的进行候选装配-->
+	<bean  autowire-candidate="false" name="indexService" class="com.luban.services.s22"></bean>
+<!--		<bean init-method="" id="a" class="com.luban.app.A">
+		</bean>-->
 
 <!--		<bean id="i1" class="com.luban.services.I1">-->
 <!--		</bean>-->

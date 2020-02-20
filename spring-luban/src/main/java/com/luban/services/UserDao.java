@@ -6,4 +6,7 @@ public interface UserDao {
 
 	@Select("select * from  xxxx")
 	public void query();
+
+	@Select("select * from  AAA")
+	public void query2();
 }
